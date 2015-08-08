@@ -8,6 +8,10 @@
 * 1.  Two Sum (https://leetcode.com/problems/two-sum/)
 
 
+### Node.js style standard
+
+* Code should follow Node.js style standard(https://github.com/felixge/node-style-guide)
+
 ### Issues report
 
 * If you find any problem, welcome to report a issue
