@@ -7,10 +7,11 @@
  */
 
 /**
+ * Array merge
  * @param {array} arr1
  * @param {array} arr2
  */
-var loop = function(arr1, arr2) {
+var merge = function(arr1, arr2) {
     var result = [];
     for( var i = 0; i < arr1.length; i ++ ) {
         for( var j = 0; j < arr2.length; j ++ ) {
@@ -51,7 +52,7 @@ var letterCombinations = function(digits) {
     for( var i = 0; i < len - 1; i ++ ) {
 	var arr1 = arr.shift();
 	var arr2 = arr.shift();
-	arr.unshift(loop(arr1, arr2));
+	arr.unshift(merge(arr1, arr2));
     }
     return arr[0];
 };
@@ -60,7 +61,7 @@ var letterCombinations = function(digits) {
 // Test
 
 console.log('abc'.split(''));
-console.log(loop(['a', 'b', 'c'], ['d', 'e', 'f']));
+console.log(merge(['a', 'b', 'c'], ['d', 'e', 'f']));
 
 
 // Call
