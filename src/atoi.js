@@ -18,55 +18,69 @@ String.prototype.trimLeft = String.prototype.trimLeft || function () {
  * @return {number}
  */
 var myAtoi = function(str) {
-    var str = str.trimLeft();
-    var sign;
-    var index;
+    var INT_MAX =   2147483647;
+    var INT_MIN =  -2147483648;
+    var SIGN = {
+        POSITIVE: '+',
+	NEGTIVE: '-'
+    };
+
+    str = str.trimLeft();
+    var result = 0;
+    var start = 0;
     var validStr;
-    var value;
-    var  INT_MAX = 2147483647;
-    var INT_MIN = -2147483648;
+    var isPositive = 1;
+    
     if( str === '' ) {
         return 0;
     }
 
-    for( var i = 0; i < str.length; i ++ ) {
-        if( !isNaN(str[i])) {
-	    sign = str[i - 1];
-	    index = i;
-	    break;
+    if( str[start] !== SIGN.POSITIVE && str[start] !== SIGN.NEGTIVE && isNaN(str[start]) ) {
+        return 0;
+    } 
+
+    while( str[start] === SIGN.POSITIVE || str[start] === SIGN.NEGTIVE ) {
+        if( str[start] === SIGN.NEGTIVE ) {
+	        isPositive = -1;       	
+	}
+	start ++;	    
+    }
+
+    if( start > 1 ) {
+        return 0;
+    }
+
+
+    for( var i = start, len = str.length; i < len; i ++ ) {
+	if( str[start] === ' ' || isNaN(str[start]) ) {
+	    return 0;
+	}
+        if( isNaN(str[i]) || i === str.length - 1 ) {
+	    validStr = str.substring(start, i + 1);
 	}
     }
 
-    if( sign === '-' || sign === '+' ) {
-        for( var i = index; i < str.length; i ++ ) {
-            if( isNaN(str[i]) || i === str.length - 1) {		
-	        validStr = str.substring(1, i + 1);
-	        break;
-       	    }
-        }
-    } else {
-        for( var i = index - 1; i < str.length; i ++ ) {
-            if( isNaN(str[i]) || i === str.length - 1) {		
-	        validStr = str.substring(0, i + 1);
-	        break;
-       	    }
-        }    
+    result = isPositive * parseInt(validStr);
+    
+    if( result >= INT_MAX ) {
+        return INT_MAX;
+    }
+    if( result <= INT_MIN ) {
+        return INT_MIN;
     }
 
-    value = parseInt(validStr);
-    if( value > INT_MAX || value < INT_MIN ) {
-        return 0;
-    }
-    return value; 
+    result = isPositive * parseInt(validStr);
+    return result; 
 };
 
-
-// Test
-//console.log('   wtf!'.trimLeft());
-//console.log(isNaN('c'));
-
 // Call
-console.log(myAtoi('-123'));
-console.log(myAtoi('1'));
-console.log(myAtoi('+1'));
-console.log(myAtoi('+-1'));
+
+console.log(myAtoi('     123'));
+console.log(myAtoi('+12'));
+console.log(myAtoi('-12'));
+console.log(myAtoi('+-12'));
+console.log(myAtoi(''));
+console.log(myAtoi('+12abc'));
+console.log(myAtoi('-abc'));
+console.log(myAtoi('- 321'));
+console.log(myAtoi('  +b12102370352'));
