@@ -14,6 +14,7 @@
 * 13. Roman to Integer (https://leetcode.com/problems/roman-to-integer/)
 * 14. LCP: longest common prefix (https://leetcode.com/problems/longest-common-prefix/)
 * 17. Letter Combinations of a Phone Number (https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+* 20. Valid Parentheses (https://leetcode.com/problems/valid-parentheses/)
 * 144.Binary Tree Preorder Traversal (https://leetcode.com/problems/binary-tree-preorder-traversal/)
 * 145.Binary Tree Postorder Traversal (https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
