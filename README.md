@@ -17,6 +17,7 @@
 * 20. Valid Parentheses (https://leetcode.com/problems/valid-parentheses/)
 * 22. Generate Parentheses (https://leetcode.com/problems/generate-parentheses/)
 * 26. Remove Duplicates from Sorted Array (https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+* 27. Remove Element (https://leetcode.com/problems/remove-element/)
 * 144.Binary Tree Preorder Traversal (https://leetcode.com/problems/binary-tree-preorder-traversal/)
 * 145.Binary Tree Postorder Traversal (https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
